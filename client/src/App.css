@@ -1,0 +1,233 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f5f7fa;
+  color: #1a1a2e;
+}
+
+.loading { display: flex; justify-content: center; align-items: center; height: 100vh; font-size: 1.2rem; color: #666; }
+
+/* Navbar */
+.navbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0.75rem 2rem; background: #1a1a2e; color: white;
+}
+.nav-brand { color: white; text-decoration: none; font-size: 1.3rem; font-weight: 700; }
+.nav-links { display: flex; gap: 1.5rem; align-items: center; }
+.nav-links a { color: #a0aec0; text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: white; }
+.nav-user { color: #63b3ed; font-size: 0.9rem; }
+
+/* Buttons */
+.btn {
+  padding: 0.5rem 1rem; border: none; border-radius: 6px; cursor: pointer;
+  background: #4361ee; color: white; font-size: 0.9rem; transition: background 0.2s;
+}
+.btn:hover { background: #3a56d4; }
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.btn-sm { padding: 0.3rem 0.6rem; font-size: 0.8rem; }
+.btn-danger { background: #e63946; }
+.btn-danger:hover { background: #c5303c; }
+.btn-success { background: #2d6a4f; }
+.btn-success:hover { background: #245a42; }
+
+/* Login */
+.login-container { display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+.login-form {
+  background: white; padding: 2.5rem; border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08); width: 100%; max-width: 400px;
+  display: flex; flex-direction: column; gap: 1rem;
+}
+.login-form h1 { text-align: center; color: #1a1a2e; margin-bottom: 0.5rem; }
+
+/* Forms & Inputs */
+input, select {
+  padding: 0.6rem 0.8rem; border: 1px solid #d1d5db; border-radius: 6px;
+  font-size: 0.95rem; outline: none; transition: border 0.2s;
+}
+input:focus, select:focus { border-color: #4361ee; }
+
+.error { color: #e63946; font-size: 0.9rem; padding: 0.5rem; background: #fef2f2; border-radius: 6px; }
+.success-msg { color: #2d6a4f; font-size: 0.9rem; margin-left: 1rem; }
+
+/* Page */
+.page { padding: 2rem; max-width: 1200px; margin: 0 auto; }
+.page h2 { margin-bottom: 1.5rem; color: #1a1a2e; }
+
+/* Create form */
+.create-form {
+  display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: flex-end;
+  padding: 1.5rem; background: white; border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 2rem;
+}
+.create-form input { flex: 1; min-width: 150px; }
+
+/* Table */
+.data-table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.data-table th { background: #f8f9fa; text-align: left; padding: 0.75rem 1rem; font-weight: 600; color: #555; }
+.data-table td { padding: 0.75rem 1rem; border-top: 1px solid #eee; }
+.data-table tr:hover td { background: #f8f9ff; }
+
+/* Employee rows */
+.clickable-row { cursor: pointer; }
+.clickable-row:hover td { background: #f0f4ff; }
+.clickable-row.expanded td { background: #f0f4ff; border-bottom: none; }
+.expand-arrow { color: #999; font-size: 0.75rem; margin-left: 0.4rem; }
+.avail-row td { padding: 0 1rem 1rem; background: #f8f9ff; }
+.avail-loading, .avail-empty { color: #888; font-size: 0.9rem; padding: 0.5rem 0; }
+.avail-list { display: flex; flex-direction: column; gap: 0.75rem; }
+.avail-week { background: white; border-radius: 8px; padding: 0.75rem; box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
+.avail-week-header { font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem; color: #1a1a2e; }
+.avail-days { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.avail-day {
+  display: flex; flex-direction: column; align-items: center; gap: 0.15rem;
+  padding: 0.4rem 0.6rem; border-radius: 6px; font-size: 0.8rem; min-width: 80px;
+}
+.avail-day.available { background: #d1fae5; color: #065f46; }
+.avail-day.unavailable { background: #fee2e2; color: #991b1b; }
+.avail-day-name { font-weight: 600; }
+.avail-day-time { font-size: 0.75rem; }
+
+/* Requests */
+.pending-badge {
+  font-size: 0.8rem; background: #e63946; color: white; padding: 0.2rem 0.6rem;
+  border-radius: 12px; margin-left: 0.5rem; font-weight: 600; vertical-align: middle;
+}
+.requests-section { margin-bottom: 1rem; }
+.requests-section h4 { font-size: 0.85rem; color: #555; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.request-card {
+  background: white; border-radius: 8px; padding: 0.75rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05); margin-bottom: 0.5rem;
+}
+.request-card.pending { border-left: 3px solid #f59e0b; }
+.request-card.approved { border-left: 3px solid #2d6a4f; opacity: 0.7; }
+.request-card.denied { border-left: 3px solid #e63946; opacity: 0.7; }
+.request-card-header {
+  display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;
+  font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem;
+}
+.request-date { font-weight: 400; color: #888; font-size: 0.8rem; }
+.request-actions { display: flex; gap: 0.4rem; margin-left: auto; }
+.request-status { font-size: 0.75rem; padding: 0.15rem 0.5rem; border-radius: 10px; font-weight: 600; }
+.request-status.pending { background: #fef3c7; color: #92400e; }
+.request-status.approved { background: #d1fae5; color: #065f46; }
+.request-status.denied { background: #fee2e2; color: #991b1b; }
+.my-requests { margin-top: 2rem; }
+.my-requests h3 { font-size: 1.1rem; margin-bottom: 0.75rem; }
+.default-school-row {
+  display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;
+  padding: 0.75rem; background: white; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+.default-school-row label { font-weight: 600; font-size: 0.85rem; white-space: nowrap; }
+.default-school-row select { min-width: 180px; }
+
+/* Availability */
+.week-picker { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; }
+.availability-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1rem; overflow: hidden; }
+.day-card {
+  background: white; border-radius: 10px; padding: 1.25rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06); transition: transform 0.2s;
+  min-width: 0; overflow: hidden;
+}
+.day-card:hover { transform: translateY(-2px); }
+.day-card.unavailable { opacity: 0.5; background: #f8f8f8; }
+.day-header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; font-weight: 600; }
+.day-header label { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; }
+.time-inputs { display: flex; flex-direction: column; align-items: stretch; gap: 0.5rem; }
+.time-inputs input { width: 100%; min-width: 0; }
+
+/* Roster */
+.roster-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; }
+.roster-controls { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
+.status-badge { padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; }
+.status-badge.draft { background: #fef3c7; color: #92400e; }
+.status-badge.published { background: #d1fae5; color: #065f46; }
+
+.add-shift-bar {
+  display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;
+  padding: 1rem; background: white; border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 1.5rem;
+}
+.add-shift-bar select { min-width: 200px; }
+
+.roster-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; }
+.day-column {
+  background: #f0f2f5; border-radius: 10px; padding: 1rem; min-height: 300px;
+}
+.day-column h3 { text-align: center; margin-bottom: 0.75rem; font-size: 0.95rem; color: #555; }
+.shifts-container { display: flex; flex-direction: column; gap: 0.5rem; }
+
+.shift-card {
+  background: white; border-radius: 8px; padding: 0.75rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08); cursor: grab;
+  display: flex; flex-direction: column; gap: 0.25rem; position: relative;
+  border-left: 3px solid #4361ee; transition: box-shadow 0.2s;
+}
+.shift-card:hover { box-shadow: 0 3px 10px rgba(0,0,0,0.12); }
+.shift-card.dragging { opacity: 0.8; box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+.shift-card strong { font-size: 0.9rem; }
+.shift-card span { font-size: 0.8rem; color: #666; }
+.remove-btn {
+  position: absolute; top: 4px; right: 6px; background: none; border: none;
+  color: #999; cursor: pointer; font-size: 1rem; line-height: 1;
+}
+.remove-btn:hover { color: #e63946; }
+
+/* Settings */
+.settings-form {
+  background: white; padding: 1.5rem; border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06); max-width: 450px;
+  display: flex; flex-direction: column; gap: 0.75rem;
+}
+.settings-form label { font-weight: 600; }
+.settings-hint { font-size: 0.85rem; color: #666; margin: 0; }
+.operating-hours-inputs { display: flex; align-items: center; gap: 0.5rem; }
+.operating-hours-inputs input { flex: 1; }
+
+/* Dropdown */
+.dropdown { position: relative; }
+.dropdown-menu {
+  position: absolute; top: 100%; left: 0; z-index: 10; margin-top: 0.25rem;
+  background: white; border-radius: 6px; box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  min-width: 200px; overflow: hidden;
+}
+.dropdown-menu button {
+  display: block; width: 100%; text-align: left; padding: 0.6rem 1rem;
+  border: none; background: none; cursor: pointer; font-size: 0.9rem;
+}
+.dropdown-menu button:hover { background: #f0f2f5; }
+
+/* Prompt bar */
+.prompt-bar {
+  display: flex; gap: 0.5rem; align-items: center;
+  padding: 1rem; background: white; border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 1rem;
+}
+.prompt-bar input { flex: 1; }
+
+/* School tags on shift cards */
+.school-tag {
+  font-size: 0.75rem; color: #4361ee; align-self: flex-start;
+}
+
+/* Day toggle buttons (Schools page) */
+.day-toggles { display: flex; gap: 0.4rem; }
+.day-toggle {
+  padding: 0.35rem 0.7rem; border: 1px solid #d1d5db; border-radius: 6px;
+  background: white; cursor: pointer; font-size: 0.85rem; transition: all 0.2s;
+}
+.day-toggle.active { background: #4361ee; color: white; border-color: #4361ee; }
+
+/* School labels under day column headers */
+.day-schools { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.5rem; justify-content: center; }
+.day-school-label {
+  font-size: 0.7rem; background: #e8ecff; color: #4361ee; padding: 0.15rem 0.5rem;
+  border-radius: 4px; font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .availability-grid, .roster-grid { grid-template-columns: 1fr; }
+  .navbar { flex-direction: column; gap: 0.5rem; }
+  .create-form { flex-direction: column; }
+}
