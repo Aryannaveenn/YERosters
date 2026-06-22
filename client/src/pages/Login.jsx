@@ -20,6 +20,7 @@ export default function Login() {
   return (
     <div className="login-container">
       <form onSubmit={handleSubmit} className="login-form">
+        <img src="/yerosters.jpeg" alt="YE Rosters" className="login-logo" />
         <h1>YE Rosters</h1>
         {error && <div className="error">{error}</div>}
         <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} required />

@@ -6,7 +6,7 @@ export default function Navbar() {
 
   return (
     <nav className="navbar">
-      <Link to="/" className="nav-brand">YE Rosters</Link>
+      <Link to="/" className="nav-brand"><img src="/yerosters.jpeg" alt="YE Rosters" className="nav-logo" />YE Rosters</Link>
       <div className="nav-links">
         {user?.role === 'admin' && (
           <>
